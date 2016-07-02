@@ -1,4 +1,4 @@
-FROM dsbaars/go-ethereum:debian-src
+FROM dsbaars/go-ethereum:debian-src-stable
 MAINTAINER dsbaars
 
 ENV NETWORK_ID 1234

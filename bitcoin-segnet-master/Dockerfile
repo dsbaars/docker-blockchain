@@ -33,7 +33,7 @@ RUN ./autogen.sh && ./configure  --with-boost-libdir=/usr/lib/x86_64-linux-gnu -
 RUN make -j4
 RUN make install
 
-EXPOSE 8332 8333 18332 18333
+EXPOSE 8332 8333 18332 18333 28901 28902
 
 ENTRYPOINT ["bitcoind"]
 CMD ["-segnet", "-printtoconsole"]

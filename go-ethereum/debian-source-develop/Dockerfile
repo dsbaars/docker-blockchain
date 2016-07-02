@@ -27,10 +27,16 @@ RUN set -x \
     && gosu nobody true \
     && apt-get purge -y --auto-remove ca-certificates wget
 
+RUN apt-get remove --purge  -y build-essential git-core
+RUN apt-get autoremove -y
+RUN apt-get autoclean -y
+
 EXPOSE 8545
 EXPOSE 30303
 
 RUN cp /tmp/go-ethereum/build/bin/geth /usr/local/bin/geth
+RUN rm -Rf /tmp/go-ethereum/
+
 RUN chmod +x /usr/local/bin/geth
 RUN adduser --disabled-password --gecos '' geth
 ADD entrypoint.sh /entrypoint.sh

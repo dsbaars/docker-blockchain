@@ -17,7 +17,7 @@ version: '2'
 
 services:
   testnet:
-    image: dsbaars/go-ethereum:debian-develop
+    image: dsbaars/go-ethereum:debian-src-develop
     volumes:
       - /opt/geth:/opt/geth
       - /opt/ethash:/home/geth/.ethereum

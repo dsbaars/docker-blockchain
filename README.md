@@ -1,6 +1,8 @@
 Docker Blockchain Images
 ========================
 
+[![Build Status](https://travis-ci.org/dsbaars/docker-blockchain.svg?branch=master)](https://travis-ci.org/dsbaars/docker-blockchain)
+
 __NOTE__: Not everything in this readme is relevant when you read this on Docker Hub.
 The builds are performed automatically and multiple images exist in this repository.
 Every build overwrites the specific README for that image, so that's why this one contains the information for all of them.

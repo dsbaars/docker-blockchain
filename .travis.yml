@@ -2,6 +2,7 @@ sudo: required
 
 env:
   DOCKER_COMPOSE_VERSION: 1.8.0
+  COMMIT: ${TRAVIS_COMMIT::8}
 
 services:
   - docker
@@ -13,5 +14,8 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - docker build -t dsbaars/go-ethereum go-ethereum/debian-source-develop
-  - docker build -t dsbaars/go-ethereum-privatechain go-ethereum/debian-privatechain-develop
+
+script:
+  - docker build -t dsbaars/go-ethereum go-ethereum/debian-source-develop:$COMMIT
+  - docker tag go-ethereum/debian-source-develop:$COMMIT dsbaars/go-ethereum:debian-src-develop
+  - docker build -t dsbaars/go-ethereum-privatechain go-ethereum/debian-privatechain-develop:$COMMIT

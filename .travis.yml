@@ -16,6 +16,6 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker build -t dsbaars/go-ethereum:$COMMIT go-ethereum/debian-source-develop
+  - docker build -t go-ethereum/debian-source-develop:$COMMIT go-ethereum/debian-source-develop
   - docker tag go-ethereum/debian-source-develop:$COMMIT dsbaars/go-ethereum:debian-src-develop
   - docker build -t dsbaars/go-ethereum-privatechain:$COMMIT go-ethereum/debian-privatechain-develop
